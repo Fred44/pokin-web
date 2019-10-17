@@ -3,12 +3,15 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from './shared';
+import { ShellModule } from './shell';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { WelcomeComponent } from './welcome.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    WelcomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -16,7 +19,7 @@ import { AppComponent } from './app.component';
     BrowserAnimationsModule,
 
     SharedModule,
-
+    ShellModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
