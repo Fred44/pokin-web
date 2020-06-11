@@ -1,0 +1,64 @@
+@import './app-theme';
+
+// Include material core styles.
+@include mat-core();
+
+.default-theme {
+  @include mat-core-theme($theme);
+  @include mat-button-theme($theme);
+  @include mat-card-theme($theme);
+  @include mat-checkbox-theme($theme);
+  @include mat-chips-theme($theme);
+  @include mat-form-field-theme($theme);
+  @include mat-icon-theme($theme);
+  @include mat-input-theme($theme);
+  @include mat-list-theme($theme);
+  @include mat-progress-bar-theme($theme);
+  @include mat-radio-theme($theme);
+  @include mat-stepper-theme($theme);
+  @include mat-toolbar-theme($theme);
+  @include mat-tooltip-theme($theme);
+
+  @include pokin-app-theme($theme);
+}
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.error-card {
+  background-color: #c21d00;
+  color: white;
+}
+
+.strike {
+  display: block;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.strike > span {
+  position: relative;
+  display: inline-block;
+}
+
+.strike > span:before,
+.strike > span:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 9999px;
+  height: 1px;
+  background: gray;
+}
+
+.strike > span:before {
+  right: 100%;
+  margin-right: 15px;
+}
+
+.strike > span:after {
+  left: 100%;
+  margin-left: 15px;
+}

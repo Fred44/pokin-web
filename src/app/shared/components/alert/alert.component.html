@@ -1,0 +1,15 @@
+<div class="alert {{type}}" fxLayout="row" fxLayoutGap="16px">
+  <mat-icon class="icon">{{ icon }}</mat-icon>
+  <div class="message" fxFlex>
+    <h3>{{ title }}</h3>
+    <h5>{{ text }}</h5>
+  </div>
+  <div class="actions" *ngIf="type == 'confirm'">
+    <a class="cancel-btn" (click)="close.emit()">Cancel</a>
+    <button mat-flat-button class="confirm-btn" (click)="submit.emit()">SUBMIT</button>
+  </div>
+  <button mat-icon-button *ngIf="hasClose"
+          (click)="close.emit()">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

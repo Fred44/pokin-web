@@ -1,0 +1,51 @@
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="24px">
+  <mat-card *ngIf="!!(initialized$ | async)"
+            fxFlex="auto" fxFlex.xs="auto">
+    <mat-card-header>
+      <mat-card-title>What the team say</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <mat-list class="vote-list">
+
+        <app-team-vote [vote]="vote" *ngFor="let vote of playersVote$ | async; trackBy: trackByUser">
+        </app-team-vote>
+
+      </mat-list>
+
+      <div class="nothing" *ngIf="noVote">
+        <img src="assets/img/emoji-zzz.svg" alt="">
+      </div>
+
+    </mat-card-content>
+
+    <mat-card-actions *ngIf="iAmTheOwner$ | async">
+      <button mat-stroked-button *ngIf="!votesVisible"
+              (click)="showVotes(true)">
+        SHOW
+      </button>
+      <button mat-stroked-button *ngIf="votesVisible"
+              (click)="showVotes(false)">
+        HIDE
+      </button>
+      <button mat-stroked-button
+              *ngIf="!noVote"
+              (click)="clearVotes()">
+        CLEAR
+      </button>
+    </mat-card-actions>
+
+  </mat-card>
+
+  <mat-card  fxFlex="256px" fxFlex.xs="auto"
+             class="graph">
+
+      <mat-icon *ngIf="!votesVisible" class="hidden-icon">bar_chart</mat-icon>
+
+      <app-poker-result *ngIf="votesVisible && poker$ | async as poker"
+                        [cards]="poker.cards" [votes]="votedCards$ | async">
+      </app-poker-result>
+
+  </mat-card>
+
+</div>

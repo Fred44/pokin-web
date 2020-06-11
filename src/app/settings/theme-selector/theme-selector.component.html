@@ -1,0 +1,15 @@
+<fieldset>
+  <legend>Color themes</legend>
+
+  <mat-radio-group
+    class="theme-radio-group"
+    fxLayout="column"
+    [formControl]="themeCtrl"
+    (change)="onThemeSelect()">
+
+    <mat-radio-button class="theme-radio-button" *ngFor="let theme of themes" [value]="theme.code">
+      {{theme.label}}
+    </mat-radio-button>
+
+  </mat-radio-group>
+</fieldset>

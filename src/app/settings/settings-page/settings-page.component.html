@@ -1,0 +1,8 @@
+<div class="settings-page">
+
+  <app-theme-selector
+    [theme]="theme$ | async"
+    (selected)="onThemeSelect($event)">
+  </app-theme-selector>
+
+</div>

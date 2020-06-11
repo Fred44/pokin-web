@@ -1,0 +1,50 @@
+<div class="poker-new-page">
+
+  <section class="title">
+    <h1 class="welcome">Create a new poker</h1>
+    <h5 class="hint">Before play with your team. Enter some information.</h5>
+  </section>
+
+  <mat-card><mat-horizontal-stepper linear="true" #stepper>
+
+    <mat-step [stepControl]="pokerForm"
+              optional="false"
+              label="Poker" class="step-container">
+
+      <app-poker-new-form [pokerForm]="pokerForm">
+      </app-poker-new-form>
+
+      <div>
+        <button mat-button matStepperNext [disabled]="pokerForm.invalid">
+          Next
+        </button>
+      </div>
+    </mat-step>
+
+    <mat-step [stepControl]="cardsForm"
+      label="Cards" class="step-container"
+      optional="false">
+
+      <app-cards-picker [cardsForm]="cardsForm"></app-cards-picker>
+
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext [disabled]="cardsForm.invalid">
+          Next
+        </button>
+      </div>
+    </mat-step>
+
+    <mat-step label="Summary" class="step-container">
+
+      <app-creation-confirm [poker]="poker"></app-creation-confirm>
+
+      <div>
+        <button mat-button matStepperPrevious [disabled]="pending">Back</button>
+        <button mat-flat-button color="primary" (click)="create()" [disabled]="pending">Create</button>
+      </div>
+    </mat-step>
+
+  </mat-horizontal-stepper></mat-card>
+
+</div>

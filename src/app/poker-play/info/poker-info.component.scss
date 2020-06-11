@@ -1,0 +1,26 @@
+.poker-info {
+  position: relative;
+
+  .info-header {
+    padding: 10px 16px;
+
+    .public-icon {
+      position: absolute;
+    }
+
+    .owner {
+      text-align: center;
+
+      .poker-owner-avatar {}
+      .owner-name {
+        margin-top: 6px;
+        font-size: large;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .detail {
+    padding-bottom: 8px;
+  }
+}

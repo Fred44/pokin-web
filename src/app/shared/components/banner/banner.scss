@@ -1,0 +1,29 @@
+.banner-container {
+  display: block;
+
+  .banner-content {
+    display: block;
+    z-index: 1001;
+
+    &.banner-over {
+      position: fixed;
+      left: 0;
+      right: 0;
+    }
+
+    &.banner-push {
+      position: relative;
+    }
+  }
+
+  .banner-backdrop {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    //background-color: black;
+    //opacity: 0.6;
+    z-index: 1000;
+  }
+}

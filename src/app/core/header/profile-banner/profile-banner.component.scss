@@ -1,0 +1,23 @@
+.profile-banner {
+  position: relative;
+  padding: 1rem;
+
+  .profile-photo {
+
+    .pictureUrl {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+    }
+  }
+
+  .profile-infos {
+    flex: 1;
+  }
+
+  .settings-btn {
+    top: 2px;
+    right: 2px;
+    position: absolute;
+  }
+}

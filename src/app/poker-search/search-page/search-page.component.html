@@ -1,0 +1,20 @@
+<div class="poker-search-page">
+
+  <div class="search-header">
+    <div class="search-field">
+      <input type="search" matInput [formControl]="searchCtrl" placeholder="Search" (change)="search()">
+      <mat-icon>search</mat-icon>
+    </div>
+  </div>
+
+  <mat-list class="poker-list">
+    <app-poker-item [poker]="poker" *ngFor="let poker of pokers$ | async"></app-poker-item>
+  </mat-list>
+
+  <div class="poker-actions" *ngIf="isAuth$ | async">
+    <button mat-fab color="accent" aria-label="Create a poker button"
+            routerLink="/new">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</div>

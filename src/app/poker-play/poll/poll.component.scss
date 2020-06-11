@@ -1,0 +1,21 @@
+.nothing {
+  text-align: center;
+
+  img {
+    width: 96px;
+    height: 96px;
+    opacity: 0.6;
+  }
+}
+
+.graph {
+  text-align: center;
+
+  .hidden-icon {
+    opacity: 0.4;
+    width: 72px;
+    height: 72px;
+    font-size: 72px;
+    margin-top: 28px;
+  }
+}

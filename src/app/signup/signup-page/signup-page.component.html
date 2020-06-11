@@ -1,0 +1,36 @@
+<div fxLayout="row" fxLayoutAlign="start" fxFill class="signup-page">
+
+  <div fxFlex="480px"
+       fxFlex.xs="100%">
+    <mat-progress-bar mode="indeterminate" color="accent" *ngIf="isPending"></mat-progress-bar>
+
+    <button mat-icon-button style="float: right; margin: 4px" aria-label="Back"
+            routerLink="/pokers">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+
+    <div class="signup-form-wrapper">
+      <section class="title">
+        <h1 class="welcome">Sign up to</h1>
+        POKIN
+        <h5 class="hint">Use your email to sign up</h5>
+      </section>
+
+      <app-signup-form (submitted)="register($event)">
+      </app-signup-form>
+
+      <mat-card class="error-card" *ngIf="error">
+        {{error}}
+      </mat-card>
+    </div>
+
+  </div>
+
+  <div class="signup-intro"
+       fxFlex fxHide.xs>
+    <div style="text-align:center">
+
+    </div>
+  </div>
+
+</div>

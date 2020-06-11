@@ -1,0 +1,30 @@
+.poker-search-page {
+
+  .search-header {
+    margin-bottom: 16px;
+
+    .search-field {
+      background-color: white;
+      border: 1px solid gray;
+      border-radius: 12px;
+      color: darkgray;
+      display: flex;
+      align-items: center;
+      padding: 4px 8px;
+
+      input {
+        flex: 1;
+        border: none;
+        outline: none;
+        font-size: 20px;
+        padding: 4px 8px;
+      }
+    }
+  }
+
+  .poker-actions {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+  }
+}

@@ -1,0 +1,27 @@
+<mat-card *ngIf="poll">
+
+  <div class="my-vote-header" fxLayout="row" fxLayoutAlign="start center">
+    <div class="title" fxFlex="auto">
+      {{ poll.question }}
+    </div>
+    <app-timer [state]="timerState$ | async"
+               [startTime]="startTime$ | async"
+               [canControl]="iAmTheOwner$ | async"
+               (stateChanged)="updateTimerState($event)"
+               (completed)="timerEnd()">
+    </app-timer>
+  </div>
+
+  <mat-card-content *ngIf="authenticated && poker$ | async as poker"
+                    fxLayout="row" fxLayoutAlign="center"
+                    class="content">
+    <mat-chip-list [multiple]="false">
+      <mat-chip *ngFor="let card of poker.cards"
+                (click)="vote(card)"
+                [selected]="card == myVote">
+        {{ card }}
+      </mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+
+</mat-card>

@@ -1,0 +1,33 @@
+<div class="cards-picker">
+
+  <form [formGroup]="cardsForm">
+
+    <div class="card-sets">
+      <label>Cards: </label>
+      <mat-radio-group formControlName="cardSet">
+        <mat-radio-button *ngFor="let cardSet of cardSets" [value]="cardSet.code">
+          {{cardSet.label}}
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+
+    <mat-form-field appearance="outline" class="card-chip-list">
+      <mat-chip-list #cardList>
+        <mat-chip *ngFor="let card of cardsArr"
+                  removable="true" (removed)="removeCard(card)">
+          {{card}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="Enter your cards..."
+               [matChipInputFor]="cardList"
+               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+               matChipInputAddOnBlur="true"
+               (matChipInputTokenEnd)="addCard($event)">
+      </mat-chip-list>
+      <input formControlName="cards" type="hidden" required>
+      <mat-error *ngIf="cards.errors?.required"> You must enter at least one card </mat-error>
+    </mat-form-field>
+
+  </form>
+
+</div>

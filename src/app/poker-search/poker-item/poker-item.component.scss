@@ -1,0 +1,22 @@
+.poker-item {
+
+  padding: 6px 0;
+
+  .avatar {
+    flex-shrink: 0;
+    box-sizing: content-box;
+    padding: 4px;
+    position: relative;
+    object-fit: cover;
+  }
+
+  .poker-name {
+    font-weight: 600;
+    font-size: larger;
+    padding: 10px 0;
+  }
+
+  .mat-chip-list {
+    zoom: 0.8;
+  }
+}

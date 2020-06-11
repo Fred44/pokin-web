@@ -1,0 +1,23 @@
+<div class="poker-info" *ngIf="poker$ | async as poker">
+
+  <div class="horizontal-split-header info-header">
+    <mat-icon *ngIf="!poker.public" class="public-icon">lock</mat-icon>
+    <mat-icon *ngIf="poker.public" class="public-icon">lock_open</mat-icon>
+
+    <div class="owner" *ngIf="owner$ | async as owner">
+      <app-user-picture class="poker-owner-avatar" size="xlarge" [user]="owner"></app-user-picture>
+      <div class="owner-name"> {{owner.displayName}}</div>
+    </div>
+  </div>
+
+  <div class="detail">
+
+      <ul type="none">
+        <li>Created the {{poker.creationDate|amCalendar}}</li>
+        <li>{{poker.cardSet}}</li>
+        <li *ngIf="poker.pollDuration">Duration: {{poker.pollDuration}}</li>
+      </ul>
+
+  </div>
+
+</div>

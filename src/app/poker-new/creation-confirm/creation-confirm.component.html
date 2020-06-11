@@ -1,0 +1,7 @@
+<h1>{{poker.pokerName}}</h1>
+<h3>{{poker.cardSet}}</h3>
+<h3>{{poker.public ? 'Is public' : ''}}</h3>
+<h3>{{poker.pollDuration}}</h3>
+<h3>
+  <span *ngFor="let card of poker.cards"> {{card}} </span>
+</h3>

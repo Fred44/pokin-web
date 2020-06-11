@@ -1,0 +1,30 @@
+@import '~@angular/material/theming';
+
+@import './app/shared/components/banner/banner-theme';
+@import './app/shared/components/alert/alert-theme';
+
+// Styles for the app that are based on the current theme.
+@mixin pokin-app-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  a {
+    color: mat-color($foreground, secondary-text);
+  }
+
+  .horizontal-split-header {
+    background: linear-gradient(to bottom, mat-color($primary) 60px, mat-color($background, dialog) 60px);
+  }
+
+  @include app-alert-theme($theme);
+  @include app-banner-theme($theme);
+}
+
+// Define the light theme.
+$primary: mat-palette($mat-amber);
+$accent:  mat-palette($mat-blue-gray);
+
+$theme: mat-light-theme($primary, $accent);

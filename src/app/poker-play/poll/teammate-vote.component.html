@@ -1,0 +1,16 @@
+<mat-list-item class="vote-item"
+               [@voteAnimator]="animationState"
+               (@voteAnimator.done)="resetAnimation()">
+
+  <app-user-picture matListAvatar [user]="vote.user"></app-user-picture>
+
+  <div mat-line class="detail" fxLayout="row" fxFlex="auto">
+    <div class="username" fxFlex="auto"> {{ vote.user?.displayName }} </div>
+    <div class="card"> {{ vote.card }} </div>
+  </div>
+
+  <div mat-line class="time">
+    {{ vote.at | amTimeAgo }}
+  </div>
+
+</mat-list-item>

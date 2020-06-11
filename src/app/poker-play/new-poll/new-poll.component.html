@@ -1,0 +1,23 @@
+<form [formGroup]="pollForm" (ngSubmit)="submit()">
+
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title> What is your question ?</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content fxLayout="row">
+      <mat-form-field appearance="fill" fxFlex="1 1 auto">
+        <textarea matInput #question
+                  formControlName="question"
+                  maxlength="80"
+                  placeholder="Enter your question"></textarea>
+        <mat-hint align="end">{{question.value.length}} / 80</mat-hint>
+      </mat-form-field>
+      <button mat-flat-button color="primary" type="submit" class="btn btn-primary" [disabled]="!pollForm.valid">
+        GO
+      </button>
+    </mat-card-content>
+
+  </mat-card>
+
+</form>

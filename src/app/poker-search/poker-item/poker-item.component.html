@@ -1,0 +1,23 @@
+<mat-list-item class="poker-item">
+  <app-user-picture matListAvatar class="avatar" [user]="poker.owner"></app-user-picture>
+
+  <p matLine class="poker-name">
+    <a [routerLink]="'/play/'+ poker.id">
+      {{ poker.pokerName }}
+    </a>
+  </p>
+
+  <p matLine>
+    <mat-chip-list selectable="false" class="poker-tags">
+      <mat-chip [matTooltip]="poker.cards.join(', ')">{{ poker.cardSet }}</mat-chip>
+      <mat-chip>
+        <mat-icon *ngIf="!poker.public">lock</mat-icon>
+        <mat-icon *ngIf="poker.public">lock_open</mat-icon>
+      </mat-chip>
+      <mat-chip>
+        <mat-icon>face</mat-icon>
+        {{poker.owner.displayName}}
+      </mat-chip>
+    </mat-chip-list>
+  </p>
+</mat-list-item>

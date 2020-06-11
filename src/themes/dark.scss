@@ -1,0 +1,27 @@
+
+@import '../app-theme';
+
+// Define the dark theme.
+$primary: mat-palette($mat-amber);
+$accent:  mat-palette($mat-blue-grey);
+
+$theme: mat-dark-theme($primary, $accent);
+
+.dark-theme {
+  @include mat-core-theme($theme);
+  @include mat-button-theme($theme);
+  @include mat-card-theme($theme);
+  @include mat-checkbox-theme($theme);
+  @include mat-chips-theme($theme);
+  @include mat-form-field-theme($theme);
+  @include mat-icon-theme($theme);
+  @include mat-input-theme($theme);
+  @include mat-list-theme($theme);
+  @include mat-progress-bar-theme($theme);
+  @include mat-radio-theme($theme);
+  @include mat-stepper-theme($theme);
+  @include mat-toolbar-theme($theme);
+  @include mat-tooltip-theme($theme);
+
+  @include pokin-app-theme($theme);
+}

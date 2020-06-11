@@ -1,0 +1,48 @@
+<div fxLayout="row" fxLayoutAlign="start" fxFill class="signin-page">
+
+  <div fxFlex="480px"
+       fxFlex.xs="100%">
+    <mat-progress-bar mode="indeterminate" color="accent" *ngIf="isPending"></mat-progress-bar>
+
+    <button mat-icon-button style="float: right; margin: 4px" aria-label="Back"
+            routerLink="/pokers">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+
+    <div class="signin-form-wrapper">
+
+
+      <section class="title">
+        <h1 class="welcome">Welcome to</h1>
+        POKIN
+        <h5 class="hint">Use your social account to sign in</h5>
+      </section>
+
+      <app-social-signin></app-social-signin>
+
+      <div class="strike">
+        <span>OR</span>
+      </div>
+
+      <app-password-signin *ngIf="!showResetPassword"
+                           (pending)="showProgress($event)"
+                           (forgotPassword)="showReset($event)">
+      </app-password-signin>
+
+      <app-forgot-password *ngIf="showResetPassword"
+        [email]="emailToReset"
+        (cancel)="showPassword()">
+      </app-forgot-password>
+
+    </div>
+  </div>
+
+  <div class="signin-intro"
+       fxFlex fxHide.xs>
+    <div style="text-align:center">
+
+    </div>
+  </div>
+
+</div>
+

@@ -1,0 +1,19 @@
+.social-buttons {
+
+  button {
+    width: 100%;
+    text-align: left;
+
+    .label {
+      padding-left: 1rem;
+    }
+
+    &.google {}
+
+    &.facebook {
+      color: white;
+      background-color: #4267b2;
+    }
+
+  }
+}

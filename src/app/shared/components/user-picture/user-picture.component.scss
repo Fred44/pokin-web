@@ -1,0 +1,68 @@
+:host {
+  position: relative;
+
+  .profile-picture {
+
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: #AAAAAA;
+    display: inline-flex;
+    position: relative;
+
+    &.small {
+      width: 24px;
+      height: 24px;
+      font-size: x-small;
+    }
+
+    &.medium {
+      width: 34px;
+      height: 34px;
+    }
+
+    &.large {
+      width: 64px;
+      height: 64px;
+      font-size: x-large;
+    }
+
+    &.xlarge {
+      width: 96px;
+      height: 96px;
+      font-size: xx-large;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .user-code {
+      align-self: center;
+      text-align: center;
+      flex: 1;
+    }
+  }
+
+  .status-badge {
+    border: 2px solid lightgray;
+    border-radius: 50%;
+    background-color: lightgray;
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    bottom: 0px;
+    right: 0px;
+
+    &.online {
+      background-color: green;
+    }
+
+    &.away {
+      background-color: gold;
+    }
+
+    &.offline {
+      background-color: lightgray;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+<ng-container *ngIf="poker$ | async as poker">
+  <h3 fxFlex class="pokername" (click)="info()">{{ poker.pokerName | uppercase }} </h3>
+
+  <a mat-icon-button>
+    <mat-icon (click)="share(poker)">share</mat-icon>
+  </a>
+  <a mat-icon-button *ngIf="iamOwner$ | async" (click)="delete(poker)">
+    <mat-icon>delete</mat-icon>
+  </a>
+</ng-container>

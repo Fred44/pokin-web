@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" class="top-menu">
+  <button mat-icon-button *ngIf="!(isHome$ | async)"
+          [routerLink]="['pokers']">
+    <mat-icon>arrow_back</mat-icon>
+  </button>
+  <span class="page-title">{{ pageTitle | uppercase }}</span>
+
+  <ng-container *ngComponentOutlet="toolbarComponent"></ng-container>
+
+  <button mat-icon-button *ngIf="!isAuthenticated"
+          routerLink="/signin">
+    <mat-icon>fingerprint</mat-icon>
+  </button>
+
+  <button class="avatar" *ngIf="isAuthenticated && user$ | async as user"
+          (click)="showProfileMenu()">
+    <img [src]="user.pictureUrl">
+  </button>
+
+</mat-toolbar>
+
+<app-banner [(opened)]="showProfile" mode="push">
+    <app-profile-banner (signout)="signout()">
+    </app-profile-banner>
+</app-banner>
+
+<app-banner-outlet></app-banner-outlet>
+
+<mat-progress-bar mode="indeterminate" color="accent"
+                  class="operation-indicator" [class.pending]="isLoading$ | async">
+</mat-progress-bar>

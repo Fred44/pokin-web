@@ -1,0 +1,18 @@
+<div *ngIf="poker$ | async as poker">
+
+  <div class="page-content" fxLayout="column" fxLayoutGap="24px"
+       *ngIf="initialized$ | async">
+
+    <mat-card *ngIf="!pollIsActive">
+      No poll for the moment. Wait or create one if you are the owner.
+    </mat-card>
+
+    <app-new-poll *ngIf="iAmOwner && !pollIsActive"></app-new-poll>
+
+    <app-my-vote *ngIf="pollIsActive"></app-my-vote>
+
+    <app-poker-poll *ngIf="pollIsActive"></app-poker-poll>
+
+  </div>
+
+</div>

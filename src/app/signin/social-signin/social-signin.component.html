@@ -1,0 +1,18 @@
+<div class="social-signin" fxLayout="column" fxLayoutGap="20px">
+  <div class="social-buttons" fxLayout="column" fxLayoutGap="12px">
+    <button mat-raised-button class="google" [disabled]="pending" (click)="googleLogin()">
+      <mat-icon svgIcon="google"></mat-icon>
+      <span class="label">Google</span>
+    </button>
+
+    <button mat-raised-button class="facebook" [disabled]="pending" (click)="facebookLogin()">
+      <mat-icon svgIcon="facebook"></mat-icon>
+      <span class="label">Facebook</span>
+    </button>
+  </div>
+
+  <mat-card class="error-card" *ngIf="error">
+    {{error}}
+  </mat-card>
+</div>
+
