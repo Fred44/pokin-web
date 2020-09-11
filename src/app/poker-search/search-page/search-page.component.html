@@ -2,8 +2,9 @@
 
   <div class="search-header">
     <div class="search-field">
-      <input type="search" matInput [formControl]="searchCtrl" placeholder="Search" (change)="search()">
-      <mat-icon>search</mat-icon>
+      <input matInput [formControl]="searchCtrl" placeholder="Search" (change)="search()">
+      <mat-icon *ngIf="searchCtrl.value != ''" (click)="clear()">clear</mat-icon>
+      <mat-icon *ngIf="searchCtrl.value == ''">search</mat-icon>
     </div>
   </div>
 

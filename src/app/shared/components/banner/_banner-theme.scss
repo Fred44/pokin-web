@@ -4,7 +4,7 @@
   $background: map-get($theme, background);
   $foreground: map-get($theme, foreground);
 
-  .banner-container {
+  .banner-content {
     background: mat-color($background, dialog);
     color: mat-color($foreground, text);
   }

@@ -13,10 +13,10 @@ import { Component } from '@angular/core';
   `,
   styles: [`
     .content {
-      padding: 24px;
+      /*padding: 24px;*/
     }
     .small {
-      padding: 8px;
+      /*padding: 8px;*/
     }
   `]
 })

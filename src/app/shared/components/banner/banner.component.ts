@@ -89,6 +89,9 @@ export class BannerComponent implements OnInit, AfterViewInit {
 
       this.bannerRef.afterClosed().subscribe(() => {
         this.openedVal = false;
+        if (this.portalOutlet.hasAttached()) {
+          this.portalOutlet.detach();
+        }
         this.openedChange.emit(this.openedVal);
       });
     }

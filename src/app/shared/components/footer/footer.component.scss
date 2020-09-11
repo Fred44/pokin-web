@@ -1,11 +1,14 @@
 .pokin-footer {
   background-color: #424242;
-  color: white;
   padding: 0 24px;
   margin-top: 32px;
 
-  .app {
-    text-align: center;
+  .brand-icon {
+    margin-left: 16px;
+  }
+
+  .text {
+    color: white;
   }
 
   .community {
@@ -18,7 +21,6 @@
 
     .octicon {
       fill: white;
-      margin-left: 16px;
     }
   }
 }

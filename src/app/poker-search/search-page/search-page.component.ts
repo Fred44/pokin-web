@@ -22,7 +22,7 @@ export class SearchPageComponent implements OnInit {
     select(authSelect.isAuthenticated)
   );
 
-  searchCtrl = new FormControl();
+  searchCtrl = new FormControl('');
 
   constructor(
     private store: Store<AppState>,
@@ -52,6 +52,11 @@ export class SearchPageComponent implements OnInit {
       }),
       tap(() => this.store.dispatch(operationAction.succeed({action: 'search'})))
     );
+  }
+
+  clear() {
+    this.searchCtrl.setValue('');
+    this.search();
   }
 
   toSearchItem(poker: PokerInfo, owner: User): SearchItem {
