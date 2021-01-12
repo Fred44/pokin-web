@@ -5,10 +5,11 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAnalyticsModule, ScreenTrackingService, UserTrackingService } from '@angular/fire/analytics';
 import { AngularFirePerformanceModule, PerformanceMonitoringService } from '@angular/fire/performance';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
 
 import { environment } from '@env/environment';
-import { SharedModule } from '@app/shared';
 
+import { SharedModule } from '@app/shared';
 import {
   LocalStorageService, PokerPollService, PokerService, SearchService, UserService
 } from './services';
@@ -28,6 +29,7 @@ import { HeaderModule } from './header';
     AngularFireModule.initializeApp(environment.firebase),
     environment.production ? [AngularFireAnalyticsModule, AngularFirePerformanceModule] : [],
     AngularFirestoreModule,
+    AngularFireMessagingModule,
 
     AuthModule,
     HeaderModule,

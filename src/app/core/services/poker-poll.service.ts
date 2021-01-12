@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { firestore } from 'firebase/app';
+import firebase from 'firebase/app';
 import { from, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as moment from 'moment';
@@ -16,7 +16,7 @@ import { environment } from '@env/environment';
 export class PokerPollService {
 
   newPoll(poker: PokerInfo, poll: PollOptions): Observable<void> {
-    const now = firestore.FieldValue.serverTimestamp();
+    const now = firebase.firestore.FieldValue.serverTimestamp();
     const time = !poker.pollDuration ? -1 : moment.duration('00:' + poker.pollDuration).asSeconds();
 
     return from(this.getPollRef(poker.id, 'current').set({
@@ -77,7 +77,7 @@ export class PokerPollService {
 
   updateTimer(pokerId: string, status: TimerState): Observable<void> {
     console.log('TIMER_UPDATE', pokerId, status);
-    const now = firestore.FieldValue.serverTimestamp();
+    const now = firebase.firestore.FieldValue.serverTimestamp();
 
     return from(this.getPollRef(pokerId).update({
       status: status.pause ? 'PAUSED' : 'RUNNING',

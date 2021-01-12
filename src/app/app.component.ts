@@ -1,21 +1,18 @@
 import { Component, OnDestroy, OnInit, Renderer2, ViewEncapsulation } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Subscription } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 import { unsubscribe } from '@app/shared';
-import { Layouts } from '@app/shared/model';
-import { AppState, rootSelect, settingsSelect } from '@app/store';
+import { AppState, settingsSelect } from '@app/store';
 import { ThemeService } from 'ng2-charts';
 import { ChartOptions } from 'chart.js';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   template: `
-    <div [ngSwitch]="layout" class="app-wrapper">
-      <app-page-layout *ngSwitchCase="Layouts.FooterOnly"></app-page-layout>
-      <app-main-layout *ngSwitchDefault></app-main-layout>
+    <div class="app-wrapper">
+      <router-outlet></router-outlet>
     </div>
   `,
   styles: [`
@@ -28,8 +25,6 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class AppComponent implements OnInit, OnDestroy {
 
-  Layouts = Layouts;
-  layout: Layouts;
   curTheme: string;
 
   theme$ = this.store.pipe(
@@ -37,10 +32,6 @@ export class AppComponent implements OnInit, OnDestroy {
     map(theme => theme.toLowerCase())
   );
 
-  private routeData$ = this.store.pipe(
-    select(rootSelect.selectRouteData),
-    filter(d => !!d)
-  );
   private subs: Subscription[] = [];
 
   constructor(private store: Store<AppState>,
@@ -49,9 +40,6 @@ export class AppComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subs.push(
-      this.routeData$.subscribe((data: any) => {
-        this.layout = data?.layout;
-      }),
 
       this.theme$.subscribe(theme => {
         if (this.curTheme) {

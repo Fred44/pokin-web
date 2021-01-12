@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { auth, User } from 'firebase/app';
+import firebase from 'firebase/app';
 import { from, Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
@@ -17,7 +17,7 @@ export class AuthService {
     console.log('Auth service constructor');
 
     this.user$ = this.afAuth.authState.pipe(
-      switchMap((afUser: User) => {
+      switchMap((afUser: firebase.User) => {
         if (afUser) {
           return from(afUser.getIdToken(false).then((token: string) => {
             const user = {
@@ -41,17 +41,17 @@ export class AuthService {
     return this.user$;
   }
 
-  async signInWithEmailAndPassword(credential: Credential): Promise<auth.UserCredential> {
+  async signInWithEmailAndPassword(credential: Credential): Promise<firebase.auth.UserCredential> {
     if (credential.rememberMe) {
-      await this.afAuth.setPersistence(auth.Auth.Persistence.SESSION);
+      await this.afAuth.setPersistence(firebase.auth.Auth.Persistence.SESSION);
     } else {
-      await this.afAuth.setPersistence(auth.Auth.Persistence.NONE);
+      await this.afAuth.setPersistence(firebase.auth.Auth.Persistence.NONE);
     }
     return this.afAuth.signInWithEmailAndPassword(credential.email, credential.password);
   }
 
-  signInWithGoogle(): Promise<auth.UserCredential> {
-    return this.afAuth.signInWithPopup(new auth.GoogleAuthProvider());
+  signInWithGoogle(): Promise<firebase.auth.UserCredential> {
+    return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
   }
 
   async signup(registration: UserRegistration): Promise<void> {
@@ -82,7 +82,7 @@ export class AuthService {
   }
 
   private generateToken(flag): Promise<string> {
-    return auth().currentUser.getIdToken(flag);
+    return firebase.auth().currentUser.getIdToken(flag);
   }
 
 }

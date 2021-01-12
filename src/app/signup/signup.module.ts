@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 
 import { SharedModule } from '@app/shared';
-import { Layouts } from '@app/shared/model';
+import { PageLayoutComponent } from '@app/core/layout';
 import { redirectLoggedInToHome } from '@app/core/auth';
 
 import { SignupPageComponent } from './signup-page/signup-page.component';
@@ -11,8 +11,11 @@ import { SignupFormComponent, PasswordMatchValidatorDirective } from './signup-f
 const routes: Route[] = [
   {
     path: 'signup',
-    component: SignupPageComponent,
-    data: { layout: Layouts.FooterOnly, authGuardPipe: redirectLoggedInToHome }
+    component: PageLayoutComponent,
+    children: [
+      { path: '', component: SignupPageComponent }
+    ],
+    data: { authGuardPipe: redirectLoggedInToHome }
   }
 ];
 

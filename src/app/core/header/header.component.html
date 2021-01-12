@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="top-menu">
   <button mat-icon-button *ngIf="!(isHome$ | async)"
-          [routerLink]="['pokers']">
+          routerLink="/pokers">
     <mat-icon>arrow_back</mat-icon>
   </button>
   <span class="page-title">{{ pageTitle | uppercase }}</span>

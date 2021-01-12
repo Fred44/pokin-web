@@ -4,14 +4,14 @@
 
     <mat-form-field appearance="outline">
       <mat-label>User name</mat-label>
-      <input matInput formControlName="name" required>
+      <input matInput autocomplete="username" formControlName="name" required>
       <mat-icon matSuffix>face</mat-icon>
       <mat-error *ngIf="name.errors?.required">You must enter a value</mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Email</mat-label>
-      <input matInput formControlName="email" required>
+      <input matInput autocomplete="email" formControlName="email" required>
       <mat-icon matSuffix>mail</mat-icon>
       <mat-error *ngIf="email.errors?.required"> You must enter a value </mat-error>
       <mat-error *ngIf="email.errors?.email"> Not a valid email </mat-error>
@@ -19,14 +19,14 @@
 
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
-      <input matInput [type]="hidePasswd ? 'password' : 'text'" formControlName="password" required>
+      <input matInput [type]="hidePasswd ? 'password' : 'text'" autocomplete="password" formControlName="password" required>
       <mat-icon matSuffix (click)="hidePasswd = !hidePasswd">{{hidePasswd ? 'visibility_off' : 'visibility'}}</mat-icon>
       <mat-error *ngIf="password.errors?.required"> You must enter a value </mat-error>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Confirm your password</mat-label>
-      <input matInput [type]="hidePasswd ? 'password' : 'text'" formControlName="confirmPassword" required>
+      <input matInput [type]="hidePasswd ? 'password' : 'text'" autocomplete="password" formControlName="confirmPassword" required>
       <mat-icon matSuffix (click)="hidePasswd = !hidePasswd">{{hidePasswd ? 'visibility_off' : 'visibility'}}</mat-icon>
       <mat-error *ngIf="confirmPassword.errors?.required"> You must enter a value </mat-error>
       <mat-error *ngIf="signupForm.errors?.passwordMismatch && (signupForm.touched || signupForm.dirty)"> Two passwords must be the same </mat-error>

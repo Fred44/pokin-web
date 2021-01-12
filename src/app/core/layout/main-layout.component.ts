@@ -10,14 +10,6 @@ import { Component } from '@angular/core';
       </div>
     </div>
     <app-footer></app-footer>
-  `,
-  styles: [`
-    .content {
-      /*padding: 24px;*/
-    }
-    .small {
-      /*padding: 8px;*/
-    }
-  `]
+  `
 })
 export class MainLayoutComponent { }

@@ -31,6 +31,7 @@ export class PollComponent implements OnInit, OnDestroy {
 
   playersVote$: Observable<UIVote[]>;
   votedCards$: Observable<string[]>;
+  voteCount$: Observable<number>;
 
   votesVisible = false;
   noVote = false;
@@ -56,6 +57,9 @@ export class PollComponent implements OnInit, OnDestroy {
     );
     this.votedCards$ = this.playersVote$.pipe(
       map(votes => votes.map(v => v.card))
+    );
+    this.voteCount$ = this.playersVote$.pipe(
+      map(votes => votes.length)
     );
   }
 

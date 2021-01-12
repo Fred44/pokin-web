@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { AppStoreModule } from './store';
 import { PokerSearchModule } from './poker-search';
 import { ChartsModule } from 'ng2-charts';
+import { MainLayoutComponent } from '@app/core/layout';
 
 @NgModule({
   declarations: [
@@ -33,10 +34,12 @@ import { ChartsModule } from 'ng2-charts';
     RouterModule.forRoot([
       {
         path: 'new',
+        component: MainLayoutComponent,
         loadChildren: () => import('./poker-new/poker-new.module').then(m => m.PokerNewModule),
       },
       {
         path: 'play',
+        component: MainLayoutComponent,
         loadChildren: () => import('./poker-play/poker-play.module').then(m => m.PokerPlayModule),
       },
       {path: '', redirectTo: '/pokers', pathMatch: 'full'}

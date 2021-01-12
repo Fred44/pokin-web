@@ -3,7 +3,6 @@ import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 import { Route, RouterModule } from '@angular/router';
 
 import { SharedModule } from '@app/shared';
-import { Layouts } from '@app/shared/model';
 import { redirectUnauthorizedToLogin } from '@app/core/auth';
 
 import { PokerNewFormComponent } from './poker-new-form.component';
@@ -17,7 +16,6 @@ const routes: Route[] = [
     component: PokerNewPageComponent,
     data: {
       title: 'new',
-      layout: Layouts.Main,
       authGuardPipe: redirectUnauthorizedToLogin
     },
     canActivate: [ AngularFireAuthGuard ]

@@ -19,7 +19,7 @@
 
     </mat-card-content>
 
-    <mat-card-actions *ngIf="iAmTheOwner$ | async">
+    <mat-card-actions *ngIf="(iAmTheOwner$ | async) && (voteCount$ | async) > 0">
       <button mat-stroked-button *ngIf="!votesVisible"
               (click)="showVotes(true)">
         SHOW

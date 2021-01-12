@@ -3,7 +3,7 @@ import { Route, RouterModule } from '@angular/router';
 import { AngularFireAuthGuard } from '@angular/fire/auth-guard';
 
 import { SharedModule } from '@app/shared';
-import { Layouts } from '@app/shared/model';
+import { PageLayoutComponent } from '@app/core/layout';
 import { redirectLoggedInToHome } from '@app/core/auth';
 
 import { SigninPageComponent } from './signin-page/signin-page.component';
@@ -14,8 +14,11 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 const routes: Route[] = [
   {
     path: 'signin',
-    component: SigninPageComponent,
-    data: { layout: Layouts.Main, authGuardPipe: redirectLoggedInToHome },
+    component: PageLayoutComponent,
+    children: [
+      { path: '', component: SigninPageComponent }
+    ],
+    data: { authGuardPipe: redirectLoggedInToHome },
     canActivate: [ AngularFireAuthGuard ]
   }
 ];

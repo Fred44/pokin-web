@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Route, RouterModule } from '@angular/router';
 
 import { SharedModule } from '@app/shared';
-import { Layouts } from '@app/shared/model';
+import { MainLayoutComponent } from '@app/core/layout';
 import { redirectUnauthorizedToLogin } from '@app/core/auth';
 
 import { SettingsPageComponent } from './settings-page/settings-page.component';
@@ -11,10 +11,12 @@ import { ThemeSelectorComponent } from './theme-selector/theme-selector.componen
 const routes: Route[] = [
   {
     path: 'settings',
-    component: SettingsPageComponent,
+    component: MainLayoutComponent,
+    children: [
+      { path: '', component: SettingsPageComponent }
+    ],
     data: {
       title: 'settings',
-      layout: Layouts.Main,
       authGuardPipe: redirectUnauthorizedToLogin
     }
   }

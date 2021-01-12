@@ -11,6 +11,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -34,6 +35,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     MatProgressBarModule,
     MatToolbarModule,
     MatChipsModule,
+    MatSlideToggleModule,
     MatStepperModule,
     MatTooltipModule,
     MatSidenavModule,
@@ -53,6 +55,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
     MatProgressBarModule,
     MatToolbarModule,
     MatChipsModule,
+    MatSlideToggleModule,
     MatStepperModule,
     MatTooltipModule,
     MatSidenavModule,

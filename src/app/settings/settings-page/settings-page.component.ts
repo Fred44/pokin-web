@@ -18,4 +18,17 @@ export class SettingsPageComponent {
     this.store.dispatch(settingsAction.themeChanged({ theme }));
   }
 
+  // requestPermission() {
+  //   this.afMessaging.requestPermission
+  //   .pipe(mergeMapTo(this.afMessaging.tokenChanges))
+  //   .subscribe(
+  //     () => { console.log('Permission granted!'); },
+  //     (error) => { console.error(error); },
+  //   );
+  // }
+  //
+  // listen() {
+  //   this.afMessaging.messages
+  //   .subscribe((message) => { console.log(message); });
+  // }
 }

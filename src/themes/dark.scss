@@ -19,6 +19,7 @@ $theme: mat-dark-theme($primary, $accent);
   @include mat-list-theme($theme);
   @include mat-progress-bar-theme($theme);
   @include mat-radio-theme($theme);
+  @include mat-slide-toggle-theme($theme);
   @include mat-stepper-theme($theme);
   @include mat-toolbar-theme($theme);
   @include mat-tooltip-theme($theme);
