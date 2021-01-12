@@ -47,7 +47,7 @@ export class PokerToolbarComponent implements OnInit, OnDestroy {
 
   info(): void {
     this.banner.open(PokerInfoComponent, {
-      mode: 'push'
+      mode: 'over'
     });
   }
 

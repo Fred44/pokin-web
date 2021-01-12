@@ -24,22 +24,14 @@ export class BannerRef<R = any> {
     private container: BannerContainerComponent,
     private router?: Router) {
 
-    // container.keydownEvents$.pipe(
-    //     filter(event => event.code.toUpperCase() === 'ESCAPE' && !this.disableClose && !hasModifierKey(event)),
-    //     takeUntil(this.destroyed)
-    //   )
-    //   .subscribe(event => {
-    //     event.preventDefault();
-    //     this.close();
-    //   });
-
-    // overlayRef.keydownEvents().pipe(
-    //   filter(event => event.code.toUpperCase() === 'ESCAPE' && !this.disableClose && !hasModifierKey(event))
-    // )
-    // .subscribe(event => {
-    //   event.preventDefault();
-    //   this.close();
-    // });
+    container.keydownEvents$.pipe(
+        filter(event => event.code.toUpperCase() === 'ESCAPE' && !this.disableClose && !hasModifierKey(event)),
+        takeUntil(this.destroyed)
+      )
+      .subscribe(event => {
+        event.preventDefault();
+        this.close();
+      });
 
     if (router) {
       router.events.pipe(
@@ -70,21 +62,30 @@ export class BannerRef<R = any> {
   close(result?: R): void {
     this.result = result;
 
-    this.container.animationStateChanged.pipe(
-      filter(event => event.phaseName === 'start'),
-      take(1)
-    )
-    .subscribe(event => {
+    if (this.container.options.mode === 'push') {
+      this.container.animationStateChanged.pipe(
+        filter(event => event.phaseName === 'start'),
+        take(1)
+      )
+      .subscribe(event => {
+        this.overlayRef.detachBackdrop();
+        this.myAfterClosed.next(result);
+        this.myAfterClosed.complete();
+
+        this.closeFallbackTimeout = setTimeout(() => {
+          this.overlayRef.dispose();
+          this.container.dispose();
+        }, event.totalTime + 100);
+      });
+      this.container.startExitAnimation();
+
+    } else {
       this.overlayRef.detachBackdrop();
+      this.overlayRef.dispose();
+      this.container.dispose();
       this.myAfterClosed.next(result);
       this.myAfterClosed.complete();
-
-      this.closeFallbackTimeout = setTimeout(() => {
-        this.overlayRef.dispose();
-        this.container.dispose();
-      }, event.totalTime + 100);
-    });
-    this.container.startExitAnimation();
+    }
 
     this.destroyed.next();
     this.destroyed.complete();

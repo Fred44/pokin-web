@@ -32,6 +32,9 @@ export class BannerContainerComponent extends BasePortalOutlet {
   @HostBinding('@bannerContainer')
   animState: 'void' | 'enter' | 'exit' = 'enter';
 
+  @HostBinding('@.disabled')
+  animDisabled: boolean;
+
   /** Emits when an animation state changes. */
   animationStateChanged = new EventEmitter<AnimationEvent>();
 
@@ -46,6 +49,7 @@ export class BannerContainerComponent extends BasePortalOutlet {
     public options?: BannerOptions) {
     super();
 
+    this.animDisabled = options.mode && options.mode === 'over';
     this.keydownEvents$ = fromEvent(this.elementRef.nativeElement, 'keydown') as Observable<KeyboardEvent>;
   }
 
