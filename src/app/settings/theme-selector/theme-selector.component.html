@@ -7,7 +7,7 @@
     [formControl]="themeCtrl"
     (change)="onThemeSelect()">
 
-    <mat-radio-button class="theme-radio-button" *ngFor="let theme of themes" [value]="theme.code">
+    <mat-radio-button class="theme-radio-button" *ngFor="let theme of themes" [value]="theme.code" aria-label="select {{theme.label}} theme">
       {{theme.label}}
     </mat-radio-button>
 

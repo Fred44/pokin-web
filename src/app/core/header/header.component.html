@@ -1,23 +1,28 @@
-<mat-toolbar color="primary" class="top-menu">
-  <button mat-icon-button *ngIf="!(isHome$ | async)"
-          routerLink="/pokers">
-    <mat-icon>arrow_back</mat-icon>
-  </button>
-  <span class="page-title">{{ pageTitle | uppercase }}</span>
+<header>
+  <mat-toolbar color="primary" class="top-menu">
+    <button mat-icon-button *ngIf="!(isHome$ | async)"
+            aria-label="Go back"
+            routerLink="/pokers">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+    <span class="page-title">{{ pageTitle | uppercase }}</span>
 
-  <ng-container *ngComponentOutlet="toolbarComponent"></ng-container>
+    <ng-container *ngComponentOutlet="toolbarComponent"></ng-container>
 
-  <button mat-icon-button *ngIf="!isAuthenticated"
-          routerLink="/signin">
-    <mat-icon>fingerprint</mat-icon>
-  </button>
+    <button mat-icon-button *ngIf="!isAuthenticated"
+            aria-label="Sign in"
+            routerLink="/signin">
+      <mat-icon>fingerprint</mat-icon>
+    </button>
 
-  <button class="avatar" *ngIf="isAuthenticated && user$ | async as user"
-          (click)="showProfileMenu()">
-    <img [src]="user.pictureUrl">
-  </button>
+    <button class="avatar" *ngIf="isAuthenticated && user$ | async as user"
+            aria-label="Show my profile"
+            (click)="showProfileMenu()">
+      <img [src]="user.pictureUrl" alt="my profile picture">
+    </button>
 
-</mat-toolbar>
+  </mat-toolbar>
+</header>
 
 <app-banner [(opened)]="showProfile" mode="over">
     <app-profile-banner (signout)="signout()">

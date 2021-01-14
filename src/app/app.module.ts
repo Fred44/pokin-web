@@ -2,8 +2,12 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
+import { ChartsModule } from 'ng2-charts';
 
+import { MainLayoutComponent } from '@app/core/layout';
+import { SharedModule } from '@app/shared';
 import { CoreModule } from './core';
 import { SigninModule } from './signin';
 import { SettingsModule } from './settings';
@@ -11,8 +15,7 @@ import { SignupModule } from './signup';
 import { AppComponent } from './app.component';
 import { AppStoreModule } from './store';
 import { PokerSearchModule } from './poker-search';
-import { ChartsModule } from 'ng2-charts';
-import { MainLayoutComponent } from '@app/core/layout';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,7 @@ import { MainLayoutComponent } from '@app/core/layout';
     ChartsModule,
 
     CoreModule,
+    SharedModule,
     AppStoreModule,
 
     PokerSearchModule,
@@ -44,6 +48,8 @@ import { MainLayoutComponent } from '@app/core/layout';
       },
       {path: '', redirectTo: '/pokers', pathMatch: 'full'}
     ], { enableTracing: false }),
+
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
   ],
   providers: [
     {

@@ -47,12 +47,22 @@ export class PokerToolbarComponent implements OnInit, OnDestroy {
 
   info(): void {
     this.banner.open(PokerInfoComponent, {
-      mode: 'over'
+      mode: 'push'
     });
   }
 
   share(poker): void {
-    this.banner.open(LinkShareComponent, { data: 'https://pokin-dev.web.app/play/' + poker.id });
+    const url = 'https://pokin-dev.web.app/play/' + poker.id;
+
+    if (navigator.share) {
+      navigator.share({
+        url,
+        title: 'This poker is awesome',
+        text: 'Join me and give me your guess.'
+      });
+    } else {
+      this.banner.open(LinkShareComponent, { data: url });
+    }
   }
 
   delete(poker): void {

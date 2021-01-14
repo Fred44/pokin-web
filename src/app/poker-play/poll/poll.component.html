@@ -21,14 +21,16 @@
 
     <mat-card-actions *ngIf="(iAmTheOwner$ | async) && (voteCount$ | async) > 0">
       <button mat-stroked-button *ngIf="!votesVisible"
+              aria-label="show votes"
               (click)="showVotes(true)">
         SHOW
       </button>
       <button mat-stroked-button *ngIf="votesVisible"
+              aria-label="hide votes"
               (click)="showVotes(false)">
         HIDE
       </button>
-      <button mat-stroked-button
+      <button mat-stroked-button aria-label="clear votes"
               *ngIf="!noVote"
               (click)="clearVotes()">
         CLEAR

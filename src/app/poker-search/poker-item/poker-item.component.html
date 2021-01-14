@@ -8,7 +8,7 @@
   </p>
 
   <p matLine>
-    <mat-chip-list selectable="false" class="poker-tags">
+    <mat-chip-list selectable="false" class="poker-tags" aria-label="Pokers tags">
       <mat-chip [matTooltip]="poker.cards.join(', ')">{{ poker.cardSet }}</mat-chip>
       <mat-chip>
         <mat-icon *ngIf="!poker.public">lock</mat-icon>

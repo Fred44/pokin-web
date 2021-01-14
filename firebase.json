@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/pokin-nine",
+    "public": "dist/pokin-dev",
     "ignore": [
       "firebase.json",
       "**/.*",
@@ -10,6 +10,15 @@
       {
         "source": "**",
         "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|css|svg)",
+        "headers": [ {
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        } ]
       }
     ]
   }

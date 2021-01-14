@@ -23,7 +23,6 @@ export class SearchService {
     this.index$ = auth.getUser().pipe(
       switchMap(() => this.http.get<{ key: string }>(url)),
       map(data => {
-        console.log('KEY', data);
         const client = algoliasearch(environment.algolia.appId, data.key);
         return client.initIndex('pokers');
       }),

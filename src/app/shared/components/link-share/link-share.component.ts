@@ -12,7 +12,7 @@ import { BannerRef } from '../banner/banner-ref';
         <mat-icon matSuffix>link</mat-icon>
       </mat-form-field>
 
-      <button mat-icon-button class="cp-btn" fxFlexAlign="center"
+      <button mat-icon-button class="cp-btn" fxFlexAlign="center" aria-label="copy to clipboard"
               [cdkCopyToClipboard]="value" (click)="this.banner.close()">
         <mat-icon>content_copy</mat-icon>
       </button>

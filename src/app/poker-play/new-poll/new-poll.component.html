@@ -13,7 +13,8 @@
                   placeholder="Enter your question"></textarea>
         <mat-hint align="end">{{question.value.length}} / 80</mat-hint>
       </mat-form-field>
-      <button mat-flat-button color="primary" type="submit" class="btn btn-primary" [disabled]="!pollForm.valid">
+      <button mat-flat-button color="primary" type="submit" aria-label="submit poll"
+              class="btn btn-primary" [disabled]="!pollForm.valid">
         GO
       </button>
     </mat-card-content>

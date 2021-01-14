@@ -1,6 +1,7 @@
 <div class="profile-picture {{size}}"
      title="{{displayName}} is {{status}} since {{lastChanged | amCalendar}}">
-  <img [src]="pictureUrl" alt="" *ngIf="pictureUrl">
+  <img [src]="pictureUrl" alt="" *ngIf="pictureUrl"
+    [width]="wh" [height]="wh">
   <span class="user-code" *ngIf="!pictureUrl">{{userCode}}</span>
 </div>
 <div class="status-badge {{status}}" *ngIf="showStatus"></div>

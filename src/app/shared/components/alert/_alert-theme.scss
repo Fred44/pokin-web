@@ -2,9 +2,14 @@
 
 @mixin app-alert-theme($theme) {
   $warn: map-get($theme, warn);
+  $accent: map-get($theme, accent);
 
   .alert {
     background-color: mat-color($warn);
+  }
+
+  .info {
+    background-color: mat-color($accent);
   }
 
   .actions {

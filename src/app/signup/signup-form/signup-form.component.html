@@ -33,7 +33,8 @@
     </mat-form-field>
 
     <div class="form-actions">
-      <button mat-flat-button type="submit" color="primary" [disabled]="signupForm.invalid">
+      <button mat-flat-button type="submit" color="primary" aria-label="register"
+              [disabled]="signupForm.invalid">
         Register
       </button>
       <a routerLink="/signin" class="signin">Sign in</a>

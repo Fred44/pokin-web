@@ -14,6 +14,8 @@ export class UserPictureComponent implements OnInit, OnDestroy, OnChanges {
   @Input()
   size: 'small' | 'medium' | 'large' | 'xlarge' = 'medium';
 
+  wh = 34;
+
   displayName: string;
   pictureUrl: string;
   userCode: string;
@@ -25,6 +27,20 @@ export class UserPictureComponent implements OnInit, OnDestroy, OnChanges {
   constructor() { }
 
   ngOnInit() {
+    switch (this.size) {
+      case 'small':
+        this.wh = 24;
+        break;
+      case 'medium':
+        this.wh = 34;
+        break;
+      case 'large':
+        this.wh = 64;
+        break;
+      case 'xlarge':
+        this.wh = 96;
+        break;
+    }
   }
 
   ngOnChanges() {

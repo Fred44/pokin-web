@@ -2,13 +2,13 @@
   <mat-icon class="icon">{{ icon }}</mat-icon>
   <div class="message" fxFlex>
     <h3>{{ title }}</h3>
-    <h5>{{ text }}</h5>
+    <h5>{{ text }} <ng-content></ng-content> </h5>
   </div>
   <div class="actions" *ngIf="type == 'confirm'">
     <a class="cancel-btn" (click)="close.emit()">Cancel</a>
-    <button mat-flat-button class="confirm-btn" (click)="submit.emit()">SUBMIT</button>
+    <button mat-flat-button class="confirm-btn" (click)="submit.emit()" aria-label="submit">SUBMIT</button>
   </div>
-  <button mat-icon-button *ngIf="hasClose"
+  <button mat-icon-button *ngIf="hasClose" aria-label="close"
           (click)="close.emit()">
     <mat-icon>close</mat-icon>
   </button>
