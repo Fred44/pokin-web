@@ -13,7 +13,7 @@ export class AlertComponent {
   @Input() text: string;
   @Input() hasClose = false;
 
-  @Output() close = new EventEmitter<void>();
-  @Output() submit = new EventEmitter<void>();
+  @Output() closeAlert = new EventEmitter<void>();
+  @Output() submitAlert = new EventEmitter<void>();
 
 }

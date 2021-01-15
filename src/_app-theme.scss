@@ -2,6 +2,7 @@
 
 @import './app/shared/components/banner/banner-theme';
 @import './app/shared/components/alert/alert-theme';
+@import './app/core/pwa/components/install-prompt/install-prompt-theme';
 
 // Styles for the app that are based on the current theme.
 @mixin pokin-app-theme($theme) {
@@ -21,6 +22,7 @@
 
   @include app-alert-theme($theme);
   @include app-banner-theme($theme);
+  @include app-install-prompt-theme($theme);
 }
 
 // Define the light theme.

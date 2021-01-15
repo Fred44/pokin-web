@@ -16,6 +16,7 @@ import {
 import { AuthModule } from './auth';
 import { MainLayoutComponent, PageLayoutComponent } from './layout';
 import { HeaderModule } from './header';
+import { PwaModule } from '@app/core/pwa';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { HeaderModule } from './header';
 
     AuthModule,
     HeaderModule,
+    PwaModule,
   ],
   providers: [
     LocalStorageService,

@@ -5,11 +5,11 @@
     <h5>{{ text }} <ng-content></ng-content> </h5>
   </div>
   <div class="actions" *ngIf="type == 'confirm'">
-    <a class="cancel-btn" (click)="close.emit()">Cancel</a>
-    <button mat-flat-button class="confirm-btn" (click)="submit.emit()" aria-label="submit">SUBMIT</button>
+    <a class="cancel-btn" (click)="closeAlert.emit()">Cancel</a>
+    <button mat-flat-button class="confirm-btn" (click)="submitAlert.emit()" aria-label="submit">SUBMIT</button>
   </div>
   <button mat-icon-button *ngIf="hasClose" aria-label="close"
-          (click)="close.emit()">
+          (click)="closeAlert.emit()">
     <mat-icon>close</mat-icon>
   </button>
 </div>

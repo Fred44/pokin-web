@@ -1,5 +1,5 @@
 <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="24px">
-  <mat-card *ngIf="!!(initialized$ | async)"
+  <mat-card *ngIf="(initialized$ | async) === true"
             fxFlex="auto" fxFlex.xs="auto">
     <mat-card-header>
       <mat-card-title>What the team say</mat-card-title>

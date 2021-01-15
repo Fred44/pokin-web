@@ -10,8 +10,8 @@ import { BannerRef } from './banner-ref';
                [text]="data.text"
                [icon]="data.icon"
                [hasClose]="data.hasClose"
-               (submit)="banner.close('SUBMIT')"
-               (close)="banner.close()">
+               (submitAlert)="banner.close('SUBMIT')"
+               (closeAlert)="banner.close()">
     </app-alert>
   `
 })

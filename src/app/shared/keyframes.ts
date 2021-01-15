@@ -1,4 +1,4 @@
-import { style } from '@angular/animations'
+import { style } from '@angular/animations';
 
 export const tada = [
   // style({backgroundColor: '#EEE', borderRadius: '5px', offset: 0}),

@@ -1,0 +1,13 @@
+@import '~@angular/material/theming';
+
+@mixin app-install-prompt-theme($theme) {
+  $accent: map-get($theme, accent);
+
+  .info {
+    background-color: mat-color($accent);
+  }
+
+  .install-btn {
+    color: mat-color($accent);
+  }
+}

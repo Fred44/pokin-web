@@ -1,6 +1,6 @@
 <header>
   <mat-toolbar color="primary" class="top-menu">
-    <button mat-icon-button *ngIf="!(isHome$ | async)"
+    <button mat-icon-button *ngIf="(isHome$ | async) === false"
             aria-label="Go back"
             routerLink="/pokers">
       <mat-icon>arrow_back</mat-icon>
